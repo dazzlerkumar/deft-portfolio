@@ -6,7 +6,7 @@ import styles from 'styles/mobile-menu.module.css';
 
 export default function MobileMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
- /*  const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
+  /*  const { mounted: isMenuMounted, rendered: isMenuRendered } = useDelayedRender(
     isMenuOpen,
     {
       enterDelay: 20,
@@ -19,6 +19,7 @@ export default function MobileMenu() {
       setIsMenuOpen(false);
       document.body.style.overflow = '';
     } else {
+      console.log('open');
       setIsMenuOpen(true);
       document.body.style.overflow = 'hidden';
     }
@@ -42,6 +43,7 @@ export default function MobileMenu() {
         <CrossIcon data-hide={!isMenuOpen} />
       </button>
       {/* {isMenuMounted && ( */}
+      {isMenuOpen && (
         <ul
           className={cn(
             styles.menu,
@@ -114,7 +116,7 @@ export default function MobileMenu() {
             </Link>
           </li>
         </ul>
-    {/*   )} */}
+      )}
     </>
   );
 }
