@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+/* import type { NextApiRequest, NextApiResponse } from 'next';
 import { postBySlugQuery } from 'lib/queries';
 import { previewClient } from 'lib/sanity-server';
 
@@ -25,3 +25,4 @@ export default async function handler(
   res.writeHead(307, { Location: `/blog/${post.slug}` });
   res.end();
 }
+ */

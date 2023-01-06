@@ -1,4 +1,4 @@
-import RSS from 'rss';
+/* import RSS from 'rss';
 import { sanityClient } from 'lib/sanity-server';
 import { indexQuery } from 'lib/queries';
 
@@ -35,3 +35,4 @@ export async function getServerSideProps({ res }) {
 export default function RSSFeed() {
   return null;
 }
+ */

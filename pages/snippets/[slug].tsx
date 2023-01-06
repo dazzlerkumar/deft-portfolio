@@ -1,4 +1,4 @@
-import { MDXRemote } from 'next-mdx-remote';
+/* import { MDXRemote } from 'next-mdx-remote';
 import SnippetLayout from 'layouts/snippets';
 import components from 'components/MDXComponents';
 import { snippetsQuery, snippetSlugsQuery } from 'lib/queries';
@@ -42,3 +42,4 @@ export async function getStaticProps({ params, preview = false }) {
     }
   };
 }
+ */

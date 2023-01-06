@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+/* import type { NextApiRequest, NextApiResponse } from 'next';
 import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
 import { sanityClient } from 'lib/sanity-server';
 import { postUpdatedQuery } from 'lib/queries';
@@ -44,3 +44,4 @@ async function readBody(readable: NextApiRequest) {
   }
   return Buffer.concat(chunks).toString('utf8')
 }
+ */

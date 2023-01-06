@@ -1,4 +1,4 @@
-import Image from 'next/image';
+/* import Image from 'next/image';
 import { parseISO, format } from 'date-fns';
 import { PropsWithChildren, Suspense } from 'react';
 
@@ -76,3 +76,4 @@ export default function BlogLayout({
     </Container>
   );
 }
+ */

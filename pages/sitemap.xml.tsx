@@ -1,4 +1,4 @@
-import { sanityClient } from 'lib/sanity-server';
+/* import { sanityClient } from 'lib/sanity-server';
 import { postSlugsQuery } from 'lib/queries';
 
 const createSitemap = (slugs) => `<?xml version="1.0" encoding="UTF-8"?>
@@ -46,3 +46,4 @@ export async function getServerSideProps({ res }) {
 export default function Sitemap() {
   return null;
 }
+ */

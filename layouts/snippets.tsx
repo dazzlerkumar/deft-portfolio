@@ -1,4 +1,4 @@
-import Image from 'next/image';
+/* import Image from 'next/image';
 
 import Container from 'components/Container';
 import type { PropsWithChildren } from 'react';
@@ -39,3 +39,4 @@ export default function SnippetLayout({
     </Container>
   );
 }
+ */

@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+/* import { Suspense, useState } from 'react';
 
 import Container from 'components/Container';
 import BlogPost from 'components/BlogPost';
@@ -102,3 +102,4 @@ export async function getStaticProps({ preview = false }) {
 
   return { props: { posts } };
 }
+ */

@@ -1,4 +1,4 @@
-import Container from 'components/Container';
+/* import Container from 'components/Container';
 import FunctionCard from 'components/FunctionCard';
 import { InferGetStaticPropsType } from 'next';
 import { allSnippetsQuery } from 'lib/queries';
@@ -44,3 +44,4 @@ export async function getStaticProps({ preview = false }) {
 
   return { props: { snippets } };
 }
+ */
