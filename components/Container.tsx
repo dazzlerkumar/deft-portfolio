@@ -45,7 +45,9 @@ export default function Container(props) {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-gray-900">
+    <div /* className="bg-gray-50 dark:bg-gray-900" */   style={{
+      backgroundImage: ' linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%)'
+    }}>
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
@@ -115,7 +117,10 @@ export default function Container(props) {
       </div>
       <main
         id="skip"
-        className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900"
+        className="flex flex-col justify-center px-8"
+       /*  style={{
+          backgroundImage: ' linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%)'
+        }} */
       >
         {children}
         <Footer />

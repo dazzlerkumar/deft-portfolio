@@ -1,4 +1,5 @@
-/* import RSS from 'rss';
+import RSS from 'rss';
+/* 
 import { sanityClient } from 'lib/sanity-server';
 import { indexQuery } from 'lib/queries';
 
