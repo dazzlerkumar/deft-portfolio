@@ -1,4 +1,4 @@
-import { MDXRemote } from 'next-mdx-remote';
+/* import { MDXRemote } from 'next-mdx-remote';
 import BlogLayout from 'layouts/blog';
 import Tweet from 'components/Tweet';
 import components from 'components/MDXComponents';
@@ -60,3 +60,4 @@ export async function getStaticProps({ params, preview = false }) {
     }
   };
 }
+ */
