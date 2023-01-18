@@ -21,7 +21,7 @@ export default function Dashboard() {
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
           <ProjectCard
             title={'Angularly Ecommerce'}
-            link="#"
+            link="projects/angularlyecommerce"
             imgsrc={AngularlyEcommerce}
             desc="Ecommerce website built using Angular 11"
           />

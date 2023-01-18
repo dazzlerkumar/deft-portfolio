@@ -4,6 +4,7 @@ import { animate } from 'motion';
 
 import fetcher from 'lib/fetcher';
 import { NowPlayingSong } from 'lib/types';
+import { getNowPlaying } from 'lib/spotify';
 
 function AnimatedBars() {
   useEffect(() => {
@@ -75,8 +76,15 @@ function AnimatedBars() {
 }
 
 export default function NowPlaying() {
-  const { data } = useSWR<NowPlayingSong>('/api/now-playing', fetcher);
-console.log(data)
+  const data = {};
+  //const { data } = useSWR<NowPlayingSong>('/api/now-playing', fetcher);
+  useEffect(() => {
+    async function fetch() {
+      const res = await getNowPlaying();
+      console.log('currrent', res);
+    }
+    fetch();
+  }, []);
   return (
     <div className="flex flex-row-reverse items-center sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">
       {data?.songUrl ? (
