@@ -45,9 +45,11 @@ export default function Container(props) {
   };
 
   return (
-    <div /* className="bg-gray-50 dark:bg-gray-900" */   style={{
-      backgroundImage: ' linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%)'
-    }}>
+    <div
+      className="bg-gray-50 dark:bg-gray-900" /* style={{
+        backgroundImage: ' linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%)'
+      }} */
+    >
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
@@ -77,7 +79,7 @@ export default function Container(props) {
             <MobileMenu />
             <NavItem href="/" text="Home" />
             <NavItem href="/about" text="About Me" />
-            {/* <NavItem href="/blog" text="Blog" /> */}
+            <NavItem href="/projects" text="Projects" />
           </div>
           <button
             aria-label="Toggle Dark Mode"
@@ -118,7 +120,7 @@ export default function Container(props) {
       <main
         id="skip"
         className="flex flex-col justify-center px-8"
-       /*  style={{
+        /*   style={{
           backgroundImage: ' linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%)'
         }} */
       >
