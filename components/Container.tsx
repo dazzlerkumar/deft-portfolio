@@ -10,7 +10,7 @@ import MobileMenu from 'components/MobileMenu';
 
 function NavItem({ href, text }) {
   const router = useRouter();
-  const isActive = router.asPath === href;
+  const isActive = router.asPath.split('/')[1] === href.split('/')[1];
 
   return (
     <NextLink
