@@ -32,8 +32,8 @@ export const getNowPlaying = async () => {
   const { access_token } = await getAccessToken();
   console.log("fetching now playing")
   return fetch(NOW_PLAYING_ENDPOINT, {
+    method: 'GET',
     headers: {
-
       Authorization: `Bearer ${access_token}`
     }
   });
@@ -42,6 +42,7 @@ export const getRecentTracks = async () => {
   const { access_token } = await getAccessToken();
   console.log("fetching now recent")
   return fetch(RECENT_TRACKS, {
+    method: 'GET',
     headers: {
       Authorization: `Bearer ${access_token}`
     }
@@ -52,6 +53,7 @@ export const getTopTracks = async () => {
   const { access_token } = await getAccessToken();
 
   return fetch(TOP_TRACKS_ENDPOINT, {
+    method: 'GET',
     headers: {
       Authorization: `Bearer ${access_token}`
     }
