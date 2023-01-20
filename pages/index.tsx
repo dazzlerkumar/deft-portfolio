@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useState, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -7,15 +7,50 @@ import BlogPostCard from '../components/BlogPostCard';
 import VideoCard from '../components/VideoCard';
 
 export default function Home() {
+  const [showName, setShowName] = useState(0);
+  const name = ['Deepak Kumar', 'दीपक कुमार'];
+  /*   const changeName = () => {
+    setInterval(() => {
+      if (showName === 0) {
+        setShowName(1);
+      } else {
+        setShowName(0);
+      }
+      console.log(name[showName]);
+    }, 2500);
+  }; */
+
   return (
     <Suspense fallback={null}>
       <Container>
         <div className="flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-16">
           <div className="flex flex-col-reverse sm:flex-row items-start">
             <div className="flex flex-col pr-8">
-              <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
-                Deepak Kumar
-              </h1>
+              <div className="overflow-hidden h-16 border-red-100">
+                <div className="string">
+                  <h1
+                    className="font-bold relative t-0 l-0 text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white"
+                    style={{
+                      cursor: 'pointer',
+                      lineHeight: '1.5',
+                      userSelect: 'none'
+                    }}
+                  >
+                    Deepak Kumar
+                  </h1>
+                  <h1
+                    className="font-bold relative t-0 l-0 text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white"
+                    style={{
+                      cursor: 'pointer',
+                      lineHeight: '1.5',
+                      userSelect: 'none'
+                    }}
+                  >
+                    दीपक कुमार
+                  </h1>
+                </div>
+              </div>
+
               <h2 className="text-gray-700 dark:text-gray-200 mb-4">
                 Frontend Engineer at{' '}
                 <span className="font-semibold">Doorpix Pvt Ltd.</span>
