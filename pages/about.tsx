@@ -69,7 +69,7 @@ export default function About() {
           {/* <div className="flex space-x-8">
             <a href="/avatar.jpg">
               <Image
-                alt="Lee Robinson headshot"
+                alt="Deepak Kumar headshot"
                 width={400}
                 quality={100}
                 src={avatar}

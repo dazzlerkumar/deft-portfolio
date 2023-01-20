@@ -4,7 +4,7 @@ import Container from 'components/Container';
 
 export default function NotFound() {
   return (
-    <Container title="404 – Lee Robinson">
+    <Container title="404 – Deepak Kumar">
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           451 – Unavailable For Legal Reasons
@@ -17,7 +17,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="p-1 sm:p-4 w-64 font-bold mx-auto bg-gray-200 dark:bg-gray-800 text-center rounded-md text-black dark:text-white"
+          className="flex justify-center w-40 bg-white hover:bg-gray-800 text-gray-900 hover:text-white   py-2 px-4 border-b-4 border-slate hover:border-gray-700 rounded transform active:translate-y-1 transition duration-200 ease-in-out"
         >
           Return Home
         </Link>

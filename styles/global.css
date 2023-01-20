@@ -227,31 +227,6 @@ table {
 .prose .callout > p {
   margin: 0 !important;
 }
-.nameText {
-  background-color: #000;
-  animation: namechange 2s ease-out infinite;
-}
-.nameText1 {
-  animation: namechange1 2s ease-out infinite;
-}
-
-@keyframes namechange {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 0.25;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  75% {
-    opacity: 0.25;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 
 .string {
   display: flex;
