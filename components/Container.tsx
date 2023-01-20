@@ -117,8 +117,8 @@ export default function Container(props) {
               </svg>
             )} */}
 
-            {resolvedTheme === 'dark' ? (
-              <div className="w-8 h-8 relative rounded-full transition duration-500 transform bg-yellow-500 -translate-x-2 p-1 text-white bg-gray-700">
+            {mounted && resolvedTheme === 'dark' ? (
+              <div className="w-8 h-8 relative rounded-full transition duration-500 transform -translate-x-2 p-1 text-white bg-gray-700">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
