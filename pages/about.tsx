@@ -45,6 +45,16 @@ export default function About() {
               </a>
             </li>
             <li>
+              Gitlab:{' '}
+              <a
+                href="https://gitlab.com/dazzlerkumar"
+                target={'_blank'}
+                rel="noreferrer"
+              >
+                @dazzlerkumar
+              </a>
+            </li>
+            <li>
               GitHub:{' '}
               <a
                 href="https://github.com/dazzlerkumar"
