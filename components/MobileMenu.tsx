@@ -47,7 +47,7 @@ export default function MobileMenu() {
         <ul
           className={cn(
             styles.menu,
-            'flex flex-col absolute bg-gray-100 dark:bg-gray-900',
+            'flex flex-col absolute backdrop-blur-[20px] bg-white/50 dark:bg-black/50 rounded-md',
             /* isMenuRendered && */ styles.menuRendered
           )}
         >

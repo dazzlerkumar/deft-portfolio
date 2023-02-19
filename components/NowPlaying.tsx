@@ -80,7 +80,7 @@ export default function NowPlaying() {
   //const { data } = useSWR<NowPlayingSong>('/api/now-playing', fetcher);
   useEffect(() => {
     async function fetch() {
-      const res = await getTopTracks();
+      const res = await getRecentTracks();
       console.log('currrent', res);
     }
     fetch();
