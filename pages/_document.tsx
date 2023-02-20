@@ -4,6 +4,7 @@ export default function Document(props) {
   return (
     <Html lang="en">
       <Head>
+        <meta name="description" content="Deepak Kumar Software Engineer (Frontend) from Lucknow expertise in NextJS, ReactJs and Website development. | Frontend Engineer | Software Engineer | NextJS | ReactJS | React Native | Web Developer | Web Designer | Lucknow | India"></meta>
         <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
         <link href="/static/favicons/site.webmanifest" rel="manifest" />
         <link
