@@ -62,7 +62,7 @@ export default function Home() {
             </div>
             <div className="w-[80px] sm:w-[200px] relative mb-8 sm:mb-0 mr-auto">
               <Image
-                alt="Deepak Kumar"
+                alt="Deepak Kumar | Frontend Engineer | Software Engineer | NextJS | ReactJS | React Native | Web Developer | Web Designer | Lucknow | India"
                 height={200}
                 width={200}
                 src="/avatar.jpeg"

@@ -12,25 +12,55 @@ export default function About() {
         {/*   <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           About Me
         </h1> */}
-        <div className="mb-8 prose dark:prose-dark leading-6">
+        <div className="mb-8 prose dark:prose-dark leading-16">
           <h2>Bio</h2>
           <p>
-            I am a skilled and dedicated frontend developer with a strong
-            foundation in computer science and web development.
+            Hello, I'm Deepak Kumar, a highly skilled Front-End Website
+            Developer with a passion for creating user-friendly and engaging
+            website interfaces using the Next.js (ReactJS) framework. <br />
+            Since February 2022, I've been putting my expertise to work at
+            Doorpix Pvt Ltd, continuously honing my abilities in website
+            development.
+            <br />
+            If you're looking for a talented and motivated Front-End Website
+            Developer who is committed to delivering top-notch results, look no
+            further than me🧑🏽‍💻. With my combination of technical expertise,
+            creative vision, and unwavering commitment to excellence, I'm sure
+            to bring your web development projects to life in exciting and
+            engaging ways.
           </p>
           {/* Job Title */}
           <h3>Job Title</h3>
           <p>
-            In my current role as a frontend engineer at Doorpix Pvt Ltd, I have
-            the opportunity to apply and further hone my skills in building
-            Next.Js and React applications.
+            As a Frontend Engineer at{' '}
+            <a
+              href="https://www.linkedin.com/company/doorpix/about/"
+              target={'_blank'}
+              rel="noreferrer"
+              className="font-normal"
+            >
+              {' '}
+              Doorpix Pvt Ltd
+            </a>{' '}
+            since February 2022, I have been presented with a unique opportunity
+            to not only apply but also enhance my skills in building Next.Js and
+            React applications.
           </p>
           <h3>Education</h3>
           <p>
-            I completed my schooling at Kendriya Vidyalaya, Gomti Nagar,
-            Lucknow, and went on to earn a Bachelor's of Technology in Computer
-            Science Engineering at the prestigious Babu Banarasi Das National
-            Institute of Technology and Management.
+            I am a proud alumnus of Kendriya Vidyalaya, Gomti Nagar, Lucknow,
+            where I completed my schooling. Continuing my pursuit of excellence,
+            I went on to earn a Bachelor's of Technology in Computer Science
+            Engineering from the prestigious{' '}
+            <a
+              href="https://aktu.ac.in/"
+              target={'_blank'}
+              rel="noreferrer"
+              className="font-normal"
+            >
+              {' '}
+              Dr. APJ Abdul Kalam Technical University, Lucknow.
+            </a>
           </p>
           <h2>Links</h2>
           <ul>
