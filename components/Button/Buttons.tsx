@@ -7,7 +7,7 @@ enum ButtonTypes {
   'reset',
   undefined
 }
-
+type ButtonType = "button" | "submit" | "reset";
 type Props = {
   buttonType: string;
   buttonVariant: string;
@@ -20,7 +20,7 @@ type Props = {
   buttonBorderRadius: string;
   buttonFontSize: string;
   buttonFontWeight: number;
-  buttonActionType: ButtonTypes;
+  buttonActionType: ButtonType;
   buttonFormAssociated: string;
   buttonLoading: boolean;
   buttonDisabled: boolean;
@@ -31,8 +31,6 @@ type Props = {
 const Button = (props: Props) => {
   const { resolvedTheme, theme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  console.log('res', resolvedTheme);
-  console.log('theme', theme);
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -85,7 +83,7 @@ Button.defaultProps = {
   buttonBorderRadius: '',
   buttonFontSize: '1rem',
   buttonFontWeight: 500,
-  buttonActionType: ButtonTypes.button,
+  buttonActionType: 'button',
   buttonFormAssociated: '',
   buttonLoading: false,
   buttonDisabled: false,
