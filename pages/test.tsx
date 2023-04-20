@@ -1,12 +1,13 @@
 import { Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PrismaClient } from '@prisma/client'
+
 import Container from '../components/Container';
 import BlogPostCard from '../components/BlogPostCard';
+import Timeline from '@components/Timeline';
+import Button from '@components/Button/Buttons';
 
 export default function Home() {
-
   return (
     <Suspense fallback={null}>
       <Container>
@@ -104,7 +105,11 @@ export default function Home() {
             </>
           </Link>
 
+          {/* Timeliine */}
+          <Timeline />
           {/*  <Subscribe /> */}
+          <Button />
+          <Button buttonType='secondary'/>
         </div>
       </Container>
     </Suspense>

@@ -21,10 +21,13 @@
 }
 
 .menu {
-  padding: 0 28px 0 4px;
+  display: block;
+  position: absolute;
+
+  padding: 1rem;
   margin: 0;
-  padding-top: 24px;
-  width: max-content;
+/*   padding-top: 24px; */
+  width: 80vw;
   height: max-content;
   z-index: 1000;
   opacity: 0;
@@ -33,6 +36,7 @@
 }
 
 .menu li {
+  text-align: center;
   transform: translateX(-16px);
   opacity: 0;
   transition: opacity 300ms ease, transform 300ms ease, width 300ms ease,
