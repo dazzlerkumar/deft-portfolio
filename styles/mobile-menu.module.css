@@ -21,10 +21,15 @@
 }
 
 .menu {
+  display: block;
+  position: absolute;
+
+/*   backdrop-filter: blur(15px); */
+
   padding: 0 28px 0 4px;
   margin: 0;
   padding-top: 24px;
-  width: max-content;
+  width: 80vw;
   height: max-content;
   z-index: 1000;
   opacity: 0;
@@ -33,6 +38,7 @@
 }
 
 .menu li {
+  text-align: center;
   transform: translateX(-16px);
   opacity: 0;
   transition: opacity 300ms ease, transform 300ms ease, width 300ms ease,

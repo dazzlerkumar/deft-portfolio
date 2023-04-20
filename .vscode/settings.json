@@ -1,4 +1,8 @@
 {
     "ecl.launchConfiguration": "not found",
-    "ecl.targetCluster": {}
+    "ecl.targetCluster": {},
+    "sonarlint.connectedMode.project": {
+        "connectionId": "",
+        "projectKey": ""
+    }
 }

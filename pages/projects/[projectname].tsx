@@ -13,7 +13,10 @@ export default function ProjectPage() {
   return (
     <Container title="Project - Deepak Kumar" description="My personal project">
       <div className="flex flex-col max-w-2xl mx-auto mb-16 w-full text-gray-900 dark:text-white">
-        <div className="w-full text-sm tracking-tight text-gray-900 dark:text-white">
+        <div
+          className="w-full text-sm tracking-tight text-gray-900 dark:text-white cursor-pointer"
+          onClick={() => router.back()}
+        >
           {'<-'} Back to Projects
         </div>
         <div className="w-full min-h-[360px] bg-teal-500 relative p-2 rounded">
