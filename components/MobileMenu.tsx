@@ -36,40 +36,38 @@ export default function MobileMenu() {
       </button>
 
       {isMenuOpen && (
-        <div>
-          <ul
-            className={cn(
-              styles.menu,
-              'flex flex-col bg-white dark:bg-black rounded-md shadow-[0_35px_60px_-15px_rgba(0,0,0,0.25)]',
-              styles.menuRendered
-            )}
+        <ul
+          className={cn(
+            styles.menu,
+            'flex flex-col bg-white dark:bg-black rounded-md shadow-[0_35px_60px_-15px_rgba(0,0,0,0.25)]',
+            styles.menuRendered
+          )}
+        >
+          <li
+            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 font-semibold"
+            style={{ transitionDelay: '150ms' }}
           >
-            <li
-              className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 font-semibold"
-              style={{ transitionDelay: '150ms' }}
-            >
-              <Link href="/" className="flex w-auto pb-4">
-                Home
-              </Link>
-            </li>
-            <li
-              className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100  font-semibold"
-              style={{ transitionDelay: '175ms' }}
-            >
-              <Link href="/guestbook" className="flex w-auto pb-4">
-                About Me
-              </Link>
-            </li>
-            <li
-              className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100  font-semibold"
-              style={{ transitionDelay: '200ms' }}
-            >
-              <Link href="/dashboard" className="flex w-auto pb-4">
-                Projects
-              </Link>
-            </li>
-          </ul>
-        </div>
+            <Link href="/" className="flex w-auto pb-4">
+              Home
+            </Link>
+          </li>
+          <li
+            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100  font-semibold"
+            style={{ transitionDelay: '175ms' }}
+          >
+            <Link href="/about" className="flex w-auto pb-4">
+              About Me
+            </Link>
+          </li>
+          <li
+            className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100  font-semibold"
+            style={{ transitionDelay: '200ms' }}
+          >
+            <Link href="/projects" className="flex w-auto pb-4">
+              Projects
+            </Link>
+          </li>
+        </ul>
       )}
     </>
   );

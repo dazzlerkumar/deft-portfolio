@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Container from '../components/Container';
 import BlogPostCard from '../components/BlogPostCard';
 import Timeline from '@components/Timeline';
+import Button from '@components/Button/Buttons';
 
 export default function Home() {
   return (
@@ -107,6 +108,8 @@ export default function Home() {
           {/* Timeliine */}
           <Timeline />
           {/*  <Subscribe /> */}
+          <Button />
+          <Button buttonType='secondary'/>
         </div>
       </Container>
     </Suspense>

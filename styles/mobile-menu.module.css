@@ -24,11 +24,9 @@
   display: block;
   position: absolute;
 
-/*   backdrop-filter: blur(15px); */
-
-  padding: 0 28px 0 4px;
+  padding: 1rem;
   margin: 0;
-  padding-top: 24px;
+/*   padding-top: 24px; */
   width: 80vw;
   height: max-content;
   z-index: 1000;
