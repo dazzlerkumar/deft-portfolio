@@ -4,7 +4,14 @@ export default function Document(props) {
   return (
     <Html lang="en">
       <Head>
-        <meta name="description" content="Deepak Kumar Software Engineer (Frontend) from Lucknow expertise in NextJS, ReactJs and Website development. | Frontend Engineer | Software Engineer | NextJS | ReactJS | React Native | Web Developer | Web Designer | Lucknow | India"></meta>
+        <meta
+          name="google-site-verification"
+          content="4_NQPMi-zzk-VHjFj5Szrg1ZB0HSM8WylYGsWi3qW2I"
+        />
+        <meta
+          name="description"
+          content="Deepak Kumar Software Engineer (Frontend) from Lucknow expertise in NextJS, ReactJs and Website development. | Frontend Engineer | Software Engineer | NextJS | ReactJS | React Native | Web Developer | Web Designer | Lucknow | India"
+        ></meta>
         <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
         <link href="/static/favicons/site.webmanifest" rel="manifest" />
         <link
@@ -24,6 +31,7 @@ export default function Document(props) {
           sizes="16x16"
           type="image/png"
         />
+
         <link
           color="#4a9885"
           href="/static/favicons/safari-pinned-tab.svg"
