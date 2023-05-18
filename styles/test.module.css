@@ -1,0 +1,57 @@
+.super_container {
+  width: 43rem;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+}
+.flex_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+
+  width: max-content;
+  transition: width 1s ease-in-out;
+}
+
+.grid_item {
+  width: 10rem;
+  min-width: 10rem;
+  height: 15rem;
+
+  border-radius: 5px;
+  background-color: #e6e6e6;
+
+  display: grid;
+  place-items: center;
+  transition: width 1s ease-in-out;
+}
+.grid_item:hover {
+  width: 21rem;
+  cursor: pointer;
+}
+.newBox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap:1rem;
+  margin-top: 1rem;
+}
+.card {
+  flex: 1;
+
+ /*  width: 10rem;
+  min-width: 10rem; */
+  width: 25%;
+  height: 15rem;
+
+  border-radius: 5px;
+  background-color: #e6e6e6;
+
+  display: grid;
+  place-items: center;
+  transition: flex 1s ease-in-out;
+}
+.card:hover{
+  flex:3;
+}

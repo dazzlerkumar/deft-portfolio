@@ -1,12 +1,12 @@
 import { Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client';
 import Container from '../components/Container';
 import BlogPostCard from '../components/BlogPostCard';
+import FeaturedProject from '@components/FeaturedProject';
 
 export default function Home() {
-
   return (
     <Suspense fallback={null}>
       <Container>
@@ -80,6 +80,11 @@ export default function Home() {
               gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
             />
           </div>
+
+          <h3 className="font-bold text-2xl md:text-4xl tracking-tight my-6 text-black dark:text-white">
+            Featured Projects
+          </h3>
+          <FeaturedProject />
           <Link
             href="https://medium.com/@dazzlerkumar"
             target={'_blank'}
