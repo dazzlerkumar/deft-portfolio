@@ -22,7 +22,7 @@ export default function FeaturedProject() {
       image: '/nextjstemplate.png'
     }
   ];
-  let width = 100 / projects.length;
+
   return (
     <div className={style.featuredProjects__container}>
       {projects.map((project) => (
@@ -31,22 +31,14 @@ export default function FeaturedProject() {
           title={project.title}
           slug={project.slug}
           data={project}
-          width={width}
         />
       ))}
     </div>
   );
 }
-function Card({ data, title, slug, width }) {
+function Card({ data, title, slug }) {
   return (
-    <Link
-      href={slug}
-      className={style.card}
-      target="_blank"
-      style={{
-        width: `${width}%`
-      }}
-    >
+    <Link href={slug} className={style.card} target="_blank">
       <div className="grid place-items-center w-full h-full">
         <div className={style.card__hover}>
           <div className={style.image_container}>
