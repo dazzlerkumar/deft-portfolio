@@ -66,3 +66,15 @@
 .card:hover .card__hover > span {
   backdrop-filter: blur(0);
 }
+
+@media screen and (min-width: 325px) and (max-width: 470px) {
+  .card{
+    min-width: 10rem;
+  }
+  .featuredProjects__container {
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding: 1rem;
+    width: 22rem;
+  }
+}

@@ -52,7 +52,7 @@ export default function Home() {
                 alt="Deepak Kumar | Frontend Engineer | Software Engineer | NextJS | ReactJS | React Native | Web Developer | Web Designer | Lucknow | India"
                 height={200}
                 width={200}
-                src="/avatar.jpeg"
+                src="/avatar.png"
                 sizes="30vw"
                 priority
                 className="rounded-full filter"
