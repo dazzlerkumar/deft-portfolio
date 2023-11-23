@@ -1,12 +1,26 @@
 import { Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PrismaClient } from '@prisma/client';
+//import { PrismaClient } from '@prisma/client';
 import Container from '../components/Container';
 import BlogPostCard from '../components/BlogPostCard';
 import FeaturedProject from '@components/FeaturedProject';
 
+//const prisma = new PrismaClient();
 export default function Home() {
+  const getBlogs = async () => {
+    const response = await fetch('/api/blog',{
+      method:"GET"
+    });
+    //console.log("pre res", response)
+    return response.json();
+  };
+  const onClicked = () => {
+    console.log("clicked")
+    getBlogs().then((res) => {
+      console.log('res', res);
+    });
+  };
   return (
     <Suspense fallback={null}>
       <Container>
@@ -60,7 +74,10 @@ export default function Home() {
             </div>
           </div>
 
-          <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
+          <h3
+            className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white"
+            onClick={onClicked}
+          >
             Featured Posts
           </h3>
           <div className="flex gap-6 flex-col md:flex-row">
