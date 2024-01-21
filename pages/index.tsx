@@ -54,7 +54,7 @@ export default function Home() {
 
               <h2 className="text-gray-700 dark:text-gray-200 mb-4">
                 Frontend Engineer at{' '}
-                <span className="font-semibold">Doorpix Pvt Ltd.</span>
+                <span className="font-semibold">Techpix Software Solutions (prev. Doorpix Pvt Ltd)</span>
               </h2>
               <p className="text-gray-600 dark:text-gray-400 mb-16">
                 Building Next.Js/React applications. Learning, sharing, and

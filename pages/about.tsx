@@ -19,7 +19,7 @@ export default function About() {
             Developer with a passion for creating user-friendly and engaging
             website interfaces using the Next.js (ReactJS) framework. <br />
             Since February 2022, I've been putting my expertise to work at
-            Doorpix Pvt Ltd, continuously honing my abilities in website
+            Techpix Software Solutions (prev. Doorpix Pvt Ltd), continuously honing my abilities in website
             development.
             <br />
             If you're looking for a talented and motivated Front-End Website
@@ -40,7 +40,7 @@ export default function About() {
               className="font-normal"
             >
               {' '}
-              Doorpix Pvt Ltd
+              Techpix Software Solutions (prev. Doorpix Pvt Ltd)
             </a>{' '}
             since February 2022, I have been presented with a unique opportunity
             to not only apply but also enhance my skills in building Next.Js and
