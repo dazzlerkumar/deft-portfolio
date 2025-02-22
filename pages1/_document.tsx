@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document';
-
+import Script from 'next/script';
 export default function Document(props) {
   return (
     <Html lang="en">
@@ -52,6 +52,18 @@ export default function Document(props) {
           content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"
           name="robots"
         />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-QRV32MGMT6"
+        ></Script>
+        <Script id="google-analytics">
+          {`
+          window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+          gtag('config', 'G-QRV32MGMT6');`}
+        </Script>
       </Head>
       <body className="bg-bg-light dark:bg-bg-dark text-white dark:text-black">
         <Main />
