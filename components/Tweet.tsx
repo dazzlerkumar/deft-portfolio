@@ -110,7 +110,7 @@ export default function Tweet({
               height={m.height}
               width={m.width}
               src={m.url}
-              className="rounded-sm"
+              className="rounded-xs"
             />
           ))}
         </div>

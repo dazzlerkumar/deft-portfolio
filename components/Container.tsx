@@ -6,7 +6,7 @@ import NextLink from 'next/link';
 import cn from 'classnames';
 
 import Footer from 'components/Footer';
-import MobileMenu from 'components/MobileMenu';
+import MobileMenu from '@components/Navbar/MobileMenu';
 //Assets
 import { TbBulb, TbBulbOff } from 'react-icons/tb';
 function NavItem({ href, text }) {
