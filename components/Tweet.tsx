@@ -50,10 +50,10 @@ export default function Tweet({
           href={authorUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="author flex flex-col ml-4 !no-underline"
+          className="author flex flex-col ml-4 no-underline!"
         >
           <span
-            className="flex items-center font-bold !text-gray-900 dark:!text-gray-100 leading-5"
+            className="flex items-center font-bold text-gray-900! dark:text-gray-100! leading-5"
             title={author.name}
           >
             {author.name}
@@ -69,7 +69,7 @@ export default function Tweet({
               </svg>
             ) : null}
           </span>
-          <span className="!text-gray-500" title={`@${author.username}`}>
+          <span className="text-gray-500!" title={`@${author.username}`}>
             @{author.username}
           </span>
         </a>
@@ -92,7 +92,7 @@ export default function Tweet({
           </svg>
         </a>
       </div>
-      <div className="mt-4 mb-1 leading-normal whitespace-pre-wrap  !text-gray-700 dark:!text-gray-200">
+      <div className="mt-4 mb-1 leading-normal whitespace-pre-wrap  text-gray-700! dark:text-gray-200!">
         {formattedText}
       </div>
       {media && media.length ? (
@@ -110,14 +110,14 @@ export default function Tweet({
               height={m.height}
               width={m.width}
               src={m.url}
-              className="rounded"
+              className="rounded-sm"
             />
           ))}
         </div>
       ) : null}
       {quoteTweet ? <Tweet {...quoteTweet} /> : null}
       <a
-        className="!text-gray-500 text-sm hover:!underline"
+        className="text-gray-500! text-sm hover:underline!"
         href={tweetUrl}
         target="_blank"
         rel="noopener noreferrer"
@@ -129,9 +129,9 @@ export default function Tweet({
           {format(createdAt, 'h:mm a - MMM d, y')}
         </time>
       </a>
-      <div className="flex text-sm !text-gray-700 dark:!text-gray-300 mt-2">
+      <div className="flex text-sm text-gray-700! dark:text-gray-300! mt-2">
         <a
-          className="flex items-center mr-4 !text-gray-500 hover:!text-blue-600 transition hover:!underline"
+          className="flex items-center mr-4 text-gray-500! hover:text-blue-600! transition hover:underline!"
           href={replyUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -149,7 +149,7 @@ export default function Tweet({
           </span>
         </a>
         <a
-          className="flex items-center mr-4 !text-gray-500 hover:!text-green-600 transition hover:!underline"
+          className="flex items-center mr-4 text-gray-500! hover:text-green-600! transition hover:underline!"
           href={retweetUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -167,7 +167,7 @@ export default function Tweet({
           </span>
         </a>
         <a
-          className="flex items-center !text-gray-500 hover:!text-red-600 transition hover:!underline"
+          className="flex items-center text-gray-500! hover:text-red-600! transition hover:underline!"
           href={likeUrl}
           target="_blank"
           rel="noopener noreferrer"

@@ -14,7 +14,7 @@ export default function BlogPostCard({ title, slug, gradient }) {
       href={slug}
       className={cn(
         'transform hover:scale-[1.01] transition-all',
-        'rounded-xl w-full md:w-1/3 bg-gradient-to-r p-1',
+        'rounded-xl w-full md:w-1/3 bg-linear-to-r p-1',
         gradient
       )}
       target="_blank"
