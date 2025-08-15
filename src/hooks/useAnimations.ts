@@ -81,7 +81,7 @@ export const useMousePosition = () => {
 export const useElementMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const element = ref.current;
@@ -140,7 +140,7 @@ export const useIntersectionObserver = (
   options: IntersectionObserverInit = {}
 ) => {
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLElement | null >(null);
 
   useEffect(() => {
     const element = ref.current;

@@ -237,6 +237,26 @@ const config: Config = {
         '700': '700ms',
         '1000': '1000ms',
       },
+
+      // Responsive breakpoints with performance considerations
+      screens: {
+        'xs': '480px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        '3xl': '1920px',
+        // Touch device queries
+        'touch': { 'raw': '(hover: none) and (pointer: coarse)' },
+        'no-touch': { 'raw': '(hover: hover) and (pointer: fine)' },
+        // High refresh rate displays
+        'high-refresh': { 'raw': '(min-resolution: 120dpi)' },
+        // Reduced motion preference
+        'reduce-motion': { 'raw': '(prefers-reduced-motion: reduce)' },
+        // High contrast preference
+        'high-contrast': { 'raw': '(prefers-contrast: high)' },
+      },
       
       // Backdrop blur utilities (enhanced for glass morphism)
       backdropBlur: {
@@ -407,6 +427,98 @@ const config: Config = {
           backdropFilter: `blur(${glass.blur.sm})`,
           WebkitBackdropFilter: `blur(${glass.blur.sm})`,
           boxShadow: glass.shadows.subtle,
+        },
+
+        // Hardware acceleration utilities
+        '.hw-accelerated': {
+          willChange: 'transform, backdrop-filter, opacity',
+          transform: 'translate3d(0, 0, 0)',
+          backfaceVisibility: 'hidden',
+          transformStyle: 'preserve-3d',
+        },
+
+        '.hw-minimal': {
+          willChange: 'transform',
+          transform: 'translateZ(0)',
+        },
+
+        '.hw-medium': {
+          willChange: 'transform, opacity',
+          transform: 'translate3d(0, 0, 0)',
+          backfaceVisibility: 'hidden',
+        },
+
+        '.hw-full': {
+          willChange: 'transform, backdrop-filter, background, box-shadow',
+          transform: 'translate3d(0, 0, 0)',
+          backfaceVisibility: 'hidden',
+          transformStyle: 'preserve-3d',
+          perspective: '1000px',
+        },
+
+        // Performance tier classes
+        '.perf-low': {
+          backdropFilter: `blur(8px) saturate(120%)`,
+          WebkitBackdropFilter: `blur(8px) saturate(120%)`,
+          transition: 'all 150ms ease-out',
+        },
+
+        '.perf-medium': {
+          backdropFilter: `blur(16px) saturate(150%)`,
+          WebkitBackdropFilter: `blur(16px) saturate(150%)`,
+          transition: 'all 250ms ease-out',
+        },
+
+        '.perf-high': {
+          backdropFilter: `blur(24px) saturate(180%)`,
+          WebkitBackdropFilter: `blur(24px) saturate(180%)`,
+          transition: 'all 350ms cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+        },
+
+        // Touch optimization utilities
+        '.touch-optimized': {
+          touchAction: 'manipulation',
+          userSelect: 'none',
+          WebkitTapHighlightColor: 'transparent',
+          minHeight: '44px',
+          minWidth: '44px',
+        },
+
+        '.touch-feedback': {
+          transition: 'transform 150ms ease-out',
+        },
+
+        '.touch-feedback:active': {
+          transform: 'scale(0.95) translateZ(0)',
+        },
+
+        // Responsive glass utilities
+        '.glass-mobile': {
+          '--glass-blur': glass.blur.sm,
+          '--glass-opacity': glass.opacity.light.toString(),
+          padding: '16px',
+          borderRadius: glass.radius.sm,
+        },
+
+        '.glass-tablet': {
+          '--glass-blur': glass.blur.md,
+          '--glass-opacity': glass.opacity.medium.toString(),
+          padding: '24px',
+          borderRadius: glass.radius.md,
+        },
+
+        '.glass-desktop': {
+          '--glass-blur': glass.blur.lg,
+          '--glass-opacity': glass.opacity.medium.toString(),
+          padding: '32px',
+          borderRadius: glass.radius.lg,
+        },
+
+        '.glass-wide': {
+          '--glass-blur': glass.blur.xl,
+          '--glass-opacity': glass.opacity.heavy.toString(),
+          padding: '40px',
+          borderRadius: glass.radius.xl,
         },
       };
       

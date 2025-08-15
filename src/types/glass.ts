@@ -44,26 +44,26 @@ export interface GlassAnimationConfig {
   /** Hover state animations */
   hover: {
     /** Scale transform on hover (1.02-1.05) */
-    scale: number;
+    scale?: number;
     /** Opacity increase on hover (0.02-0.05) */
-    opacityIncrease: number;
+    opacityIncrease?: number;
     /** Blur increase on hover (5-10px) */
-    blurIncrease: number;
+    blurIncrease?: number;
     /** Animation duration in milliseconds (200-400ms) */
-    duration: number;
+    duration?: number;
     /** Animation easing curve */
-    easing: string;
+    easing?: string;
   };
   /** Entrance animations */
   entrance: {
     /** Animation delay in milliseconds */
-    delay: number;
+    delay?: number;
     /** Animation duration in milliseconds */
-    duration: number;
+    duration?: number;
     /** Animation easing curve */
-    easing: string;
+    easing?: string;
     /** Animation type */
-    type: 'fade' | 'slide' | 'scale' | 'blur';
+    type?: 'fade' | 'slide' | 'scale' | 'blur';
   };
 }
 

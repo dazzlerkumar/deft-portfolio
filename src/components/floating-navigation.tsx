@@ -41,7 +41,7 @@ export default function FloatingNavigation() {
     });
 
     // Enhanced scroll-based glass morphing
-    const scrollGlass = useScrollGlassMorph();
+   // const scrollGlass = useScrollGlassMorph();
 
     // Handle scroll-based visibility and glass morphing
     useMotionValueEvent(scrollY, "change", (latest) => {

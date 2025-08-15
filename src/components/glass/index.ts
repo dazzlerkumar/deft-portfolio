@@ -12,6 +12,10 @@ export { default as GlassButton } from './GlassButton';
 export { default as GlassCard } from './GlassCard';
 export { default as GlassInput } from './GlassInput';
 
+// Performance and monitoring components
+export { GlassPerformanceMonitor, GlassFPSCounter } from './GlassPerformanceMonitor';
+export { GlassPerformanceDemo } from './GlassPerformanceDemo';
+
 // Types
 export type {
   GlassConfig,
@@ -41,3 +45,25 @@ export {
   mergeGlassConfig,
   getGlassConfiguration,
 } from '@/utils/glass-config';
+
+// Performance utilities
+export {
+  GlassPerformanceMonitor as PerformanceMonitorClass,
+  GlassProgressiveEnhancement,
+  hardwareAcceleration,
+  initializeGlassPerformance,
+  cleanupGlassPerformance,
+} from '@/utils/glass-performance';
+
+export {
+  getResponsiveGlassConfig,
+  getCurrentScreenSize,
+  TouchInteractionManager,
+  initializeTouchInteractions,
+  cleanupTouchInteractions,
+  responsiveLayout,
+  mediaQueries,
+} from '@/utils/glass-responsive';
+
+// Performance hooks
+export { useGlassPerformance, useResponsiveGlass } from '@/hooks/useGlassPerformance';
