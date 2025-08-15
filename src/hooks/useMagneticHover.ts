@@ -4,7 +4,7 @@
  */
 
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { useMotionValue, useSpring, useTransform, MotionValue } from 'framer-motion';
 
 interface MagneticHoverOptions {
   /** Strength of the magnetic effect (0-1) */
@@ -22,11 +22,11 @@ interface MagneticHoverOptions {
 
 interface MagneticHoverReturn {
   /** Ref to attach to the magnetic element */
-  ref: React.RefObject<HTMLElement>;
+  ref: React.RefObject<HTMLElement | null>;
   /** Motion values for x and y transforms */
   motionValues: {
-    x: any;
-    y: any;
+    x: MotionValue<number>;
+    y: MotionValue<number>;
   };
   /** Whether the element is currently being hovered */
   isHovered: boolean;
@@ -111,7 +111,7 @@ export const useMagneticHover = (options: MagneticHoverOptions = {}): MagneticHo
   const handleMouseLeave = useCallback(() => {
     setIsHovered(false);
     setMousePosition({ x: 0, y: 0 });
-    
+
     // Reset magnetic effect
     mouseX.set(0);
     mouseY.set(0);
@@ -193,7 +193,7 @@ export const useScrollGlassMorph = () => {
       const currentScrollY = window.scrollY;
       const maxScroll = 300;
       const progress = Math.min(currentScrollY / maxScroll, 1);
-      
+
       setScrollProgress(progress);
       scrollY.set(currentScrollY);
     };
