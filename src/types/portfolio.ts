@@ -43,7 +43,9 @@ export type ContactMethod =
 // Personal information interface
 export interface PersonalInfo {
   name: string;
+  nameHindi?: string; // Bilingual support for Hindi name (दीपक कुमार)
   title: string;
+  company: string; // Current company (Techpix Software Solutions)
   tagline: string;
   bio: string;
   location: {
@@ -239,24 +241,27 @@ export interface Testimonial {
   projectId?: string; // Related project if applicable
 }
 
-// Blog post interface (if blog functionality is added)
+// Blog post interface for external posts (Medium, etc.)
 export interface BlogPost {
   id: string;
   title: string;
-  slug: string;
-  excerpt: string;
-  content: string;
+  slug?: string; // Optional for external posts
+  excerpt?: string;
+  content?: string; // Optional for external posts
+  url: string; // External URL for Medium posts
+  platform: 'medium' | 'dev' | 'hashnode' | 'personal';
   publishDate: Date;
-  lastModified: Date;
+  lastModified?: Date;
   tags: string[];
   category: string;
   featured: boolean;
-  readTime: number; // in minutes
+  readTime?: number; // in minutes
+  gradient?: string; // CSS gradient for card styling
   image?: {
     url: string;
     alt: string;
   };
-  seo: {
+  seo?: {
     metaTitle?: string;
     metaDescription?: string;
     keywords?: string[];
@@ -267,6 +272,7 @@ export interface BlogPost {
 export interface PortfolioData {
   personal: PersonalInfo;
   projects: Project[];
+  featuredPosts: BlogPost[]; // Featured blog posts from Medium
   skills: Skill[];
   experience: Experience[];
   education: Education[];

@@ -1,26 +1,71 @@
-import Link from "next/link";
+"use client";
 import Particles from "@/components/particles";
+import ScrollProgress from "@/components/scroll-progress";
+import FloatingNavigation from "@/components/floating-navigation";
+import LiquidGlassHero from "@/components/liquid-glass-hero";
+import ProjectsShowcase from "@/components/projects-showcase";
+import SkillsVisualization from "@/components/skills-visualization";
+import FeaturedPostsGallery from "@/components/featured-posts-gallery";
+import ContactSection from "@/components/contact-section";
+
 export default function Home() {
     return (
-        <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
-            <div className="hidden w-screen h-px animate-glow md:block fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-            <Particles
-                className="absolute inset-0 -z-10 fade-in"
-                quantity={100}
-            />
-            <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-                DEEPAK
-            </h1>
-            <div className="hidden w-screen h-px animate-glow md:block fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-            <div className="my-16 text-center animate-fade-in">
-                <h2 className="text-sm text-zinc-500">
-                    <Link
-                        href="/profile"
-                        className="underline duration-500 hover:text-zinc-300"
-                    >
-                        explore more about me
-                    </Link>{" "}
-                </h2>
+        <div className="relative">
+            {/* Floating Navigation */}
+            <FloatingNavigation />
+            
+            {/* Liquid Glass Hero Section */}
+            <div id="hero" className="relative">
+                {/* Enhanced particles with improved interactions */}
+                <Particles
+                    className="absolute inset-0 -z-20"
+                    quantity={80}
+                    staticity={40}
+                    ease={50}
+                />
+                
+                <LiquidGlassHero />
+            </div>
+            
+            {/* Scroll progress indicators */}
+            <ScrollProgress />
+            
+            {/* About Section */}
+            <div id="about" className="min-h-screen bg-gradient-to-b from-zinc-900/50 to-black flex items-center justify-center">
+                <div className="text-center text-zinc-400 max-w-2xl mx-auto px-8">
+                    <h2 className="text-3xl font-semibold mb-6 text-white">
+                        About Me
+                    </h2>
+                    <p className="text-lg leading-relaxed mb-8">
+                        This enhanced landing page demonstrates advanced animations including 
+                        staggered character reveals, improved particle interactions, floating 
+                        geometric elements, magnetic hover effects, and smooth scroll indicators.
+                    </p>
+                    <p className="text-lg leading-relaxed">
+                        The floating navigation system adapts to scroll position and provides 
+                        smooth navigation between sections with visual feedback.
+                    </p>
+                </div>
+            </div>
+            
+            {/* Projects Section */}
+            <div id="projects" className="min-h-screen bg-gradient-to-b from-black to-zinc-900/50 flex items-center justify-center">
+                <ProjectsShowcase />
+            </div>
+            
+            {/* Skills Section */}
+            <div id="skills" className="min-h-screen bg-gradient-to-b from-zinc-900/50 to-black flex items-center justify-center">
+                <SkillsVisualization />
+            </div>
+            
+            {/* Featured Posts Section */}
+            <div id="posts" className="min-h-screen bg-gradient-to-b from-black to-zinc-900/50 flex items-center justify-center">
+                <FeaturedPostsGallery />
+            </div>
+            
+            {/* Contact Section */}
+            <div id="contact" className="min-h-screen bg-gradient-to-b from-black to-zinc-900 flex items-center justify-center">
+                <ContactSection />
             </div>
         </div>
     );

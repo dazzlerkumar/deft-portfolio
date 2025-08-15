@@ -102,12 +102,12 @@ export default function Particles({
         const y = Math.floor(Math.random() * canvasSize.current.h);
         const translateX = 0;
         const translateY = 0;
-        const size = Math.floor(Math.random() * 2) + 0.1;
+        const size = Math.floor(Math.random() * 3) + 0.5; // Slightly larger particles
         const alpha = 0;
-        const targetAlpha = parseFloat((Math.random() * 0.6 + 0.1).toFixed(1));
-        const dx = (Math.random() - 0.5) * 0.2;
-        const dy = (Math.random() - 0.5) * 0.2;
-        const magnetism = 0.1 + Math.random() * 4;
+        const targetAlpha = parseFloat((Math.random() * 0.8 + 0.2).toFixed(1)); // More visible
+        const dx = (Math.random() - 0.5) * 0.3; // Slightly faster movement
+        const dy = (Math.random() - 0.5) * 0.3;
+        const magnetism = 0.2 + Math.random() * 6; // Stronger magnetic effect
         return {
             x,
             y,
@@ -126,10 +126,26 @@ export default function Particles({
         if (context.current) {
             const { x, y, translateX, translateY, size, alpha } = circle;
             context.current.translate(translateX, translateY);
+            
+            // Enhanced particle rendering with glow effect
             context.current.beginPath();
             context.current.arc(x, y, size, 0, 2 * Math.PI);
-            context.current.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+            
+            // Create gradient for glow effect
+            const gradient = context.current.createRadialGradient(x, y, 0, x, y, size * 2);
+            gradient.addColorStop(0, `rgba(255, 255, 255, ${alpha})`);
+            gradient.addColorStop(0.4, `rgba(59, 130, 246, ${alpha * 0.6})`); // Blue glow
+            gradient.addColorStop(1, `rgba(16, 185, 129, ${alpha * 0.2})`); // Emerald outer glow
+            
+            context.current.fillStyle = gradient;
             context.current.fill();
+            
+            // Add subtle outer glow
+            context.current.shadowColor = `rgba(255, 255, 255, ${alpha * 0.5})`;
+            context.current.shadowBlur = size * 2;
+            context.current.fill();
+            context.current.shadowBlur = 0;
+            
             context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
 
             if (!update) {
@@ -200,14 +216,28 @@ export default function Particles({
             }
             circle.x += circle.dx;
             circle.y += circle.dy;
+            // Enhanced magnetic interaction with distance-based effects
+            const mouseDistance = Math.sqrt(
+                Math.pow(mouse.current.x - circle.x, 2) + 
+                Math.pow(mouse.current.y - circle.y, 2)
+            );
+            const maxDistance = 150;
+            const distanceRatio = Math.max(0, 1 - mouseDistance / maxDistance);
+            const magneticStrength = circle.magnetism * distanceRatio;
+            
             circle.translateX +=
-                (mouse.current.x / (staticity / circle.magnetism) -
+                (mouse.current.x / (staticity / magneticStrength) -
                     circle.translateX) /
-                ease;
+                (ease * (1 + distanceRatio));
             circle.translateY +=
-                (mouse.current.y / (staticity / circle.magnetism) -
+                (mouse.current.y / (staticity / magneticStrength) -
                     circle.translateY) /
-                ease;
+                (ease * (1 + distanceRatio));
+                
+            // Enhance alpha based on mouse proximity
+            if (distanceRatio > 0) {
+                circle.alpha = Math.min(circle.targetAlpha * (1 + distanceRatio * 0.5), 1);
+            }
             // circle gets out of the canvas
             if (
                 circle.x < -circle.size ||

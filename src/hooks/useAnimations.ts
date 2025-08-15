@@ -80,6 +80,7 @@ export const useMousePosition = () => {
 // Hook for element-relative mouse position (for magnetic hover effects)
 export const useElementMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -93,20 +94,27 @@ export const useElementMousePosition = () => {
       setPosition({ x, y });
     };
 
+    const handleMouseEnter = () => {
+      setIsHovering(true);
+    };
+
     const handleMouseLeave = () => {
       setPosition({ x: 0, y: 0 });
+      setIsHovering(false);
     };
 
     element.addEventListener('mousemove', handleMouseMove);
+    element.addEventListener('mouseenter', handleMouseEnter);
     element.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
       element.removeEventListener('mousemove', handleMouseMove);
+      element.removeEventListener('mouseenter', handleMouseEnter);
       element.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
-  return { ref, position };
+  return { ref, position, isHovering };
 };
 
 // Hook for scroll progress

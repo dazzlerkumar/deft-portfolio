@@ -2,7 +2,7 @@
 
 ## Overview
 
-The portfolio revamp will transform the existing minimal portfolio into a modern, animated showcase that demonstrates advanced frontend engineering skills. The design leverages the current tech stack (Next.js 15, React 19, Framer Motion, Tailwind CSS) while introducing contemporary design patterns, sophisticated animations, and interactive elements that create an engaging user experience.
+The portfolio revamp will transform Deepak Kumar's existing portfolio (dazzlerkumar.vercel.app) into a modern, animated showcase that demonstrates advanced frontend engineering skills. The design leverages the current tech stack (Next.js 15, React 19, Framer Motion, Tailwind CSS) while introducing contemporary design patterns, sophisticated animations, and interactive elements that create an engaging user experience. The design will preserve and enhance the existing content structure including featured posts, projects (Angularly Ecommerce, Config Gen, Next JS Template), and professional information about Deepak's role at Techpix Software Solutions.
 
 The design philosophy centers on "progressive disclosure" - revealing information through smooth animations and interactions that guide users through the developer's story, skills, and projects in an engaging narrative flow.
 
@@ -30,15 +30,17 @@ The design philosophy centers on "progressive disclosure" - revealing informatio
 ## Components and Interfaces
 
 ### 1. Enhanced Landing Page
-**Purpose**: Create immediate impact with sophisticated animations
+**Purpose**: Create immediate impact showcasing Deepak Kumar's professional identity
 - **Hero Section**: 
-  - Animated text reveal with staggered character animations
+  - Animated text reveal for "Deepak Kumar" with bilingual support (English/Hindi: दीपक कुमार)
+  - Professional subtitle: "Frontend Engineer at Techpix Software Solutions"
   - Enhanced particle system with mouse interaction
   - Floating geometric elements that respond to scroll
-  - Call-to-action with magnetic hover effects
+  - Professional avatar with subtle hover animations
 - **Navigation**: 
-  - Floating navigation bar with blur backdrop
+  - Floating navigation bar with blur backdrop (Home, About Me, Projects)
   - Smooth scroll indicators
+  - Dark/light mode toggle with smooth transitions
   - Mobile hamburger with animated menu overlay
 
 ### 2. About Section
@@ -49,14 +51,17 @@ The design philosophy centers on "progressive disclosure" - revealing informatio
 - **Philosophy Cards**: Flip animations revealing development principles
 
 ### 3. Projects Showcase
-**Purpose**: Demonstrate technical capabilities through project presentations
-- **Project Grid**: Masonry layout with hover animations
-- **Project Cards**: 
-  - Image galleries with smooth transitions
+**Purpose**: Demonstrate technical capabilities through featured project presentations
+- **Featured Projects Section**: 
+  - Highlight key projects: Angularly Ecommerce, Config Gen, Next JS Template
+  - Interactive project cards with hover animations and scale effects
   - Technology stack badges with hover effects
   - Live demo and GitHub links with animated icons
-- **Filter System**: Animated category filtering
-- **Case Study Modal**: Full-screen project details with smooth transitions
+- **Project Grid**: Masonry layout with smooth reveal animations
+- **Featured Posts Integration**: 
+  - Medium blog posts with gradient borders and hover effects
+  - Posts include: "Loading Screen for Client-side Fetching", "Custom Password Revealing", "Console APIs for Portfolio"
+- **External Links**: Smooth transitions to external projects and posts
 
 ### 4. Skills & Technologies
 **Purpose**: Visual representation of technical expertise
@@ -72,6 +77,31 @@ The design philosophy centers on "progressive disclosure" - revealing informatio
 - **Availability Status**: Real-time availability indicator
 - **Location Map**: Subtle animated location visualization
 
+## Content Strategy
+
+### Existing Content Integration
+The design will preserve and enhance the current portfolio content:
+
+**Professional Identity**:
+- Name: Deepak Kumar (दीपक कुमार) with bilingual support
+- Current Role: Frontend Engineer at Techpix Software Solutions
+- Focus: Next.js/React applications, learning and sharing web development
+
+**Featured Projects**:
+- Angularly Ecommerce (Angular-based e-commerce platform)
+- Config Gen (Configuration generator tool)
+- Next JS Template (Reusable Next.js template)
+
+**Featured Blog Posts**:
+- "How to Create a Loading Screen for Client-side Fetching in NextJs"
+- "Custom Password Revealing in ReactJS using Hooks"
+- "Level Up Your Frontend Developer Portfolio using these Console APIs"
+
+**Navigation Structure**:
+- Home (landing page with hero and featured content)
+- About Me (professional background and skills)
+- Projects (detailed project showcase)
+
 ## Data Models
 
 ### Portfolio Content Structure
@@ -79,14 +109,25 @@ The design philosophy centers on "progressive disclosure" - revealing informatio
 interface PortfolioData {
   personal: PersonalInfo;
   projects: Project[];
+  featuredPosts: BlogPost[];
   skills: Skill[];
   experience: Experience[];
   contact: ContactInfo;
 }
 
+interface PersonalInfo {
+  name: string;
+  nameHindi?: string; // दीपक कुमार
+  title: string; // Frontend Engineer
+  company: string; // Techpix Software Solutions
+  description: string;
+  avatar: string;
+  location: string;
+}
+
 interface Project {
   id: string;
-  title: string;
+  title: string; // e.g., "Angularly Ecommerce", "Config Gen", "Next JS Template"
   description: string;
   images: string[];
   technologies: string[];
@@ -96,19 +137,28 @@ interface Project {
   category: ProjectCategory;
 }
 
+interface BlogPost {
+  title: string;
+  url: string;
+  platform: 'medium' | 'dev' | 'hashnode';
+  gradient: string; // CSS gradient for card styling
+  featured: boolean;
+}
+
 interface Skill {
   name: string;
   level: number; // 1-100
-  category: SkillCategory;
+  category: 'frontend' | 'backend' | 'tools' | 'other';
   icon?: string;
 }
 
 interface Experience {
-  company: string;
-  position: string;
+  company: string; // e.g., "Techpix Software Solutions"
+  position: string; // e.g., "Frontend Engineer"
   duration: string;
   description: string;
   technologies: string[];
+  current: boolean;
 }
 ```
 

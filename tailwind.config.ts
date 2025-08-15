@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-import { colors, typography, spacing, shadows, borderRadius, easing, duration } from './src/design/tokens';
+import { colors, typography, spacing, shadows, borderRadius, easing, duration, glass } from './src/design/tokens';
 
 const config: Config = {
   content: [
@@ -206,6 +206,20 @@ const config: Config = {
             transform: 'translateX(0)',
           },
         },
+        
+        // Glass morphism entrance animation
+        glassEntrance: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(20px) scale(0.95)',
+            filter: 'blur(10px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0) scale(1)',
+            filter: 'blur(0px)',
+          },
+        },
       },
       
       // Custom timing functions
@@ -224,22 +238,225 @@ const config: Config = {
         '1000': '1000ms',
       },
       
-      // Backdrop blur utilities
+      // Backdrop blur utilities (enhanced for glass morphism)
       backdropBlur: {
-        xs: '2px',
-        sm: '4px',
-        md: '8px',
-        lg: '12px',
-        xl: '16px',
-        '2xl': '24px',
-        '3xl': '40px',
+        xs: glass.blur.xs,
+        sm: glass.blur.sm,
+        md: glass.blur.md,
+        lg: glass.blur.lg,
+        xl: glass.blur.xl,
+        '2xl': glass.blur['2xl'],
+        '3xl': glass.blur['3xl'],
       },
+      
+      // Glass morphism utilities
+      glassOpacity: glass.opacity,
+      glassBorderOpacity: glass.border,
+      glassRadius: glass.radius,
     },
   },
   plugins: [
-    // Custom plugin for animation utilities
-    function({ addUtilities }: { addUtilities: (utilities: Record<string, Record<string, string>>) => void; theme: (path: string) => unknown }) {
-      const newUtilities = {
+    // Custom plugin for glass morphism and animation utilities
+    function({ addUtilities, addComponents }: { 
+      addUtilities: (utilities: Record<string, Record<string, string>>) => void; 
+      addComponents: (components: Record<string, Record<string, string>>) => void;
+      theme: (path: string) => unknown;
+    }) {
+      // Glass morphism utility classes
+      const glassUtilities = {
+        // CSS Custom Properties for glass configuration
+        '.glass-vars': {
+          '--glass-opacity': glass.opacity.medium.toString(),
+          '--glass-border-opacity': glass.border.medium.toString(),
+          '--glass-blur': glass.blur.lg,
+          '--glass-saturation': '180%',
+          '--glass-radius': glass.radius.lg,
+        },
+        
+        // Base glass morphism effect
+        '.glass': {
+          background: glass.colors.default.background,
+          backdropFilter: `blur(var(--glass-blur, ${glass.blur.lg})) saturate(var(--glass-saturation, 180%))`,
+          WebkitBackdropFilter: `blur(var(--glass-blur, ${glass.blur.lg})) saturate(var(--glass-saturation, 180%))`,
+          border: `1px solid ${glass.colors.default.border}`,
+          borderRadius: `var(--glass-radius, ${glass.radius.lg})`,
+          boxShadow: glass.shadows.medium,
+          position: 'relative',
+          overflow: 'hidden',
+        },
+        
+        // Glass variants
+        '.glass-subtle': {
+          '--glass-opacity': glass.opacity.subtle.toString(),
+          '--glass-border-opacity': glass.border.subtle.toString(),
+          '--glass-blur': glass.blur.sm,
+          boxShadow: glass.shadows.subtle,
+        },
+        
+        '.glass-light': {
+          '--glass-opacity': glass.opacity.light.toString(),
+          '--glass-border-opacity': glass.border.light.toString(),
+          '--glass-blur': glass.blur.md,
+          boxShadow: glass.shadows.light,
+        },
+        
+        '.glass-medium': {
+          '--glass-opacity': glass.opacity.medium.toString(),
+          '--glass-border-opacity': glass.border.medium.toString(),
+          '--glass-blur': glass.blur.lg,
+          boxShadow: glass.shadows.medium,
+        },
+        
+        '.glass-heavy': {
+          '--glass-opacity': glass.opacity.heavy.toString(),
+          '--glass-border-opacity': glass.border.heavy.toString(),
+          '--glass-blur': glass.blur.xl,
+          boxShadow: glass.shadows.heavy,
+        },
+        
+        // Glass color themes
+        '.glass-dark': {
+          background: glass.colors.dark.background,
+          border: `1px solid ${glass.colors.dark.border}`,
+        },
+        
+        '.glass-blue': {
+          background: glass.colors.blue.background,
+          border: `1px solid ${glass.colors.blue.border}`,
+          boxShadow: glass.shadows.glow,
+        },
+        
+        '.glass-emerald': {
+          background: glass.colors.emerald.background,
+          border: `1px solid ${glass.colors.emerald.border}`,
+          boxShadow: glass.shadows['glow-emerald'],
+        },
+        
+        '.glass-purple': {
+          background: glass.colors.purple.background,
+          border: `1px solid ${glass.colors.purple.border}`,
+          boxShadow: glass.shadows['glow-purple'],
+        },
+        
+        '.glass-amber': {
+          background: glass.colors.amber.background,
+          border: `1px solid ${glass.colors.amber.border}`,
+        },
+        
+        '.glass-rose': {
+          background: glass.colors.rose.background,
+          border: `1px solid ${glass.colors.rose.border}`,
+        },
+        
+        // Glass hover effects
+        '.glass-hover': {
+          transition: `all ${glass.animations.hover.duration} ${glass.animations.hover.easing}`,
+          cursor: 'pointer',
+        },
+        
+        '.glass-hover:hover': {
+          transform: `scale(${glass.animations.hover.scale}) translateZ(0)`,
+          '--glass-opacity': (glass.opacity.medium + glass.animations.hover.opacityIncrease).toString(),
+          '--glass-blur': `calc(var(--glass-blur) + ${glass.animations.hover.blurIncrease})`,
+          willChange: 'transform, backdrop-filter',
+        },
+        
+        // Glass morphing animations
+        '.glass-morph': {
+          transition: `all ${glass.animations.morphing.duration} ${glass.animations.morphing.easing}`,
+        },
+        
+        // Glass entrance animations
+        '.glass-entrance': {
+          opacity: '0',
+          transform: 'translateY(20px) scale(0.95)',
+          filter: 'blur(10px)',
+          animation: `glassEntrance ${glass.animations.entrance.duration} ${glass.animations.entrance.easing} forwards`,
+        },
+        
+        // Hardware acceleration for glass elements
+        '.glass-accelerated': {
+          transform: 'translateZ(0)',
+          willChange: 'transform, backdrop-filter, opacity',
+          backfaceVisibility: 'hidden',
+          perspective: '1000px',
+        },
+        
+        // Fallback styles for unsupported browsers
+        '.glass-fallback': {
+          background: 'rgba(255, 255, 255, 0.1)',
+          backdropFilter: 'none',
+          WebkitBackdropFilter: 'none',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+        },
+        
+        // Reduced motion support
+        '.glass-no-motion': {
+          animation: 'none',
+          transition: 'none',
+        },
+        
+        '.glass-no-motion:hover': {
+          transform: 'none',
+        },
+        
+        // Performance optimized glass for low-end devices
+        '.glass-reduced': {
+          '--glass-blur': glass.blur.sm,
+          backdropFilter: `blur(${glass.blur.sm})`,
+          WebkitBackdropFilter: `blur(${glass.blur.sm})`,
+          boxShadow: glass.shadows.subtle,
+        },
+      };
+      
+      // Glass component classes
+      const glassComponents = {
+        // Glass panel component
+        '.glass-panel': {
+          padding: '1.5rem',
+          borderRadius: glass.radius.lg,
+        },
+        
+        // Glass card component
+        '.glass-card': {
+          padding: '1.25rem',
+          borderRadius: glass.radius.md,
+          background: 'rgba(255, 255, 255, 0.06)',
+        },
+        
+        // Glass button component
+        '.glass-button': {
+          padding: '0.75rem 1.5rem',
+          borderRadius: glass.radius.pill,
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontWeight: '500',
+          textAlign: 'center',
+          cursor: 'pointer',
+          userSelect: 'none',
+        },
+        
+        // Glass navigation component
+        '.glass-nav': {
+          padding: '0.75rem 1.5rem',
+          borderRadius: glass.radius.pill,
+          backdropFilter: `blur(${glass.blur['2xl']}) saturate(180%)`,
+          WebkitBackdropFilter: `blur(${glass.blur['2xl']}) saturate(180%)`,
+        },
+        
+        // Glass input component
+        '.glass-input': {
+          padding: '0.75rem 1rem',
+          borderRadius: glass.radius.md,
+          background: 'rgba(255, 255, 255, 0.05)',
+          color: 'white',
+        },
+      };
+      
+      // Other utility classes
+      const otherUtilities = {
         // Stagger delay utilities
         '.stagger-1': { animationDelay: '100ms' },
         '.stagger-2': { animationDelay: '200ms' },
@@ -262,13 +479,6 @@ const config: Config = {
           transition: 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
         },
         
-        // Glass morphism effect
-        '.glass': {
-          background: 'rgba(255, 255, 255, 0.05)',
-          backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-        },
-        
         // Gradient text
         '.gradient-text': {
           background: 'linear-gradient(135deg, #3b82f6, #10b981)',
@@ -284,7 +494,8 @@ const config: Config = {
         '.backface-hidden': { backfaceVisibility: 'hidden' },
       };
       
-      addUtilities(newUtilities);
+      addUtilities({ ...glassUtilities, ...otherUtilities });
+      addComponents(glassComponents);
     },
   ],
 };

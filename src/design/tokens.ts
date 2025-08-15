@@ -239,3 +239,107 @@ export const duration = {
   700: '700ms',
   1000: '1000ms',
 } as const;
+
+// Glass Morphism Design Tokens
+export const glass = {
+  // Glass opacity levels
+  opacity: {
+    subtle: 0.05,
+    light: 0.08,
+    medium: 0.1,
+    heavy: 0.15,
+    accent: 0.12,
+  },
+  
+  // Backdrop blur intensities
+  blur: {
+    xs: '4px',
+    sm: '8px',
+    md: '12px',
+    lg: '20px',
+    xl: '24px',
+    '2xl': '32px',
+    '3xl': '40px',
+  },
+  
+  // Border opacities for glass edges
+  border: {
+    subtle: 0.1,
+    light: 0.15,
+    medium: 0.2,
+    heavy: 0.3,
+  },
+  
+  // Glass color variants
+  colors: {
+    default: {
+      background: 'rgba(255, 255, 255, var(--glass-opacity))',
+      border: 'rgba(255, 255, 255, var(--glass-border-opacity))',
+    },
+    dark: {
+      background: 'rgba(0, 0, 0, var(--glass-opacity))',
+      border: 'rgba(255, 255, 255, var(--glass-border-opacity))',
+    },
+    blue: {
+      background: 'rgba(59, 130, 246, var(--glass-opacity))',
+      border: 'rgba(59, 130, 246, var(--glass-border-opacity))',
+    },
+    emerald: {
+      background: 'rgba(16, 185, 129, var(--glass-opacity))',
+      border: 'rgba(16, 185, 129, var(--glass-border-opacity))',
+    },
+    purple: {
+      background: 'rgba(147, 51, 234, var(--glass-opacity))',
+      border: 'rgba(147, 51, 234, var(--glass-border-opacity))',
+    },
+    amber: {
+      background: 'rgba(245, 158, 11, var(--glass-opacity))',
+      border: 'rgba(245, 158, 11, var(--glass-border-opacity))',
+    },
+    rose: {
+      background: 'rgba(244, 63, 94, var(--glass-opacity))',
+      border: 'rgba(244, 63, 94, var(--glass-border-opacity))',
+    },
+  },
+  
+  // Glass shadows with depth
+  shadows: {
+    subtle: '0 4px 16px rgba(0, 0, 0, 0.05)',
+    light: '0 8px 24px rgba(0, 0, 0, 0.08)',
+    medium: '0 12px 32px rgba(0, 0, 0, 0.1)',
+    heavy: '0 16px 40px rgba(0, 0, 0, 0.15)',
+    glow: '0 0 32px rgba(59, 130, 246, 0.3)',
+    'glow-emerald': '0 0 32px rgba(16, 185, 129, 0.3)',
+    'glow-purple': '0 0 32px rgba(147, 51, 234, 0.3)',
+  },
+  
+  // Glass animation presets
+  animations: {
+    hover: {
+      duration: '300ms',
+      easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      scale: 1.02,
+      opacityIncrease: 0.03,
+      blurIncrease: '5px',
+    },
+    entrance: {
+      duration: '600ms',
+      easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      delay: '0ms',
+    },
+    morphing: {
+      duration: '400ms',
+      easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+    },
+  },
+  
+  // Glass border radius presets
+  radius: {
+    sm: '8px',
+    md: '12px',
+    lg: '16px',
+    xl: '20px',
+    '2xl': '24px',
+    pill: '9999px',
+  },
+} as const;

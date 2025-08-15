@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../styles/glass.css";
 
 :root {
     --background: #0a0a0a;
@@ -106,4 +107,56 @@ body {
 }
 .fade-right {
     animation: fade-right 3s ease-in-out forwards;
+}
+
+/* Enhanced glow animation for decorative elements */
+@keyframes glow {
+    0%, 100% {
+        opacity: 0.3;
+        filter: blur(1px);
+    }
+    50% {
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+.animate-glow {
+    animation: glow 4s ease-in-out infinite;
+}
+
+/* Magnetic hover effect utilities */
+.magnetic-hover {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Enhanced text edge outline */
+.text-edge-outline {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.1),
+        0 0 20px rgba(59, 130, 246, 0.1),
+        0 0 30px rgba(16, 185, 129, 0.1);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(39, 39, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #3b82f6, #10b981);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #2563eb, #059669);
 }
